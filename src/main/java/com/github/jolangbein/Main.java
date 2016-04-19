@@ -1,11 +1,13 @@
 package com.github.jolangbein;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main
 {
     public static void main(String[] args) throws Exception
     {
-        SpringApplication.run(TypoController.class, args);
+        SpringApplication.run(Main.class, args);
     }
 }
