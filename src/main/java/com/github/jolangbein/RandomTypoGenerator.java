@@ -2,6 +2,7 @@ package com.github.jolangbein;
 
 import org.springframework.stereotype.Component;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 @Component
@@ -10,7 +11,7 @@ public class RandomTypoGenerator
     private static final int HIGHEST_ASCII_CHAR = 126;
     private static final int LOWEST_ASCI_CHAR = 33;
 
-    private Random random = new Random();
+    private final Random random = new SecureRandom();
 
     public String getTypo(final String input)
     {

@@ -6,8 +6,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TypoService
 {
+    private final RandomTypoGenerator randomTypoGenerator;
+
     @Autowired
-    private RandomTypoGenerator randomTypoGenerator;
+    public TypoService(final RandomTypoGenerator randomTypoGenerator)
+    {
+    	this.randomTypoGenerator = randomTypoGenerator;
+    }
 
     public String typonize(final String word)
     {
