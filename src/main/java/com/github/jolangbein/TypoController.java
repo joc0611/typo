@@ -1,8 +1,8 @@
 package com.github.jolangbein;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/typo")
 public class TypoController
 {
-    @Autowired
-    private TypoService typoService;
+	private final TypoService typoService;
 
-    @RequestMapping(params = "word", method= RequestMethod.GET)
-    public String getTypo(@RequestParam("word") final String word)
-    {
-        return typoService.typonize(word);
-    }
+	@Autowired
+	public TypoController(final TypoService typoService)
+	{
+		this.typoService = typoService;
+	}
+
+	@GetMapping(params = "word")
+	public String getTypo(@RequestParam("word") final String word)
+	{
+		return typoService.typonize(word);
+	}
 }
