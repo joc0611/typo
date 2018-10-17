@@ -11,7 +11,15 @@ public class RandomTypoGenerator
 	private static final int HIGHEST_ASCII_CHAR = 126;
 	private static final int LOWEST_ASCI_CHAR = 33;
 
-	private final Random random = new SecureRandom();
+	private Random random;
+
+	public RandomTypoGenerator() {
+		this(new SecureRandom());
+	}
+
+	private RandomTypoGenerator(Random random) {
+		this.random = random;
+	}
 
 	public String getTypo(final String input)
 	{
